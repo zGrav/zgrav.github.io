@@ -40,7 +40,13 @@ if($to) {
 	$mail = new PHPMailer;
 
 	$mail->IsSMTP();                                      // Set mailer to use SMTP
-
+	$mail->SMTPOptions = array(
+			'ssl' => array(
+					'verify_peer' => false,
+					'verify_peer_name' => false,
+					'allow_self_signed' => true,
+			),
+	);
 	// Optional Settings
 	//$mail->Host = 'mail.yourserver.com';				  // Specify main and backup server
 	//$mail->SMTPAuth = true;                             // Enable SMTP authentication
